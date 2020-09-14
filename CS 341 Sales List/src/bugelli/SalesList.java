@@ -33,7 +33,6 @@ public class SalesList {
 	private JTextArea textTotalOutput;
 	private Double total = 0.00;
 	
-	
 
 	/**
 	 * Launch the application.
