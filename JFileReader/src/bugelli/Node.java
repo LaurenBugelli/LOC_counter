@@ -1,5 +1,9 @@
 package bugelli;
-
+/**
+ * Node class with setters and getters for current node, next, and prev
+ * @author Lauren
+ * @since 9/27/20
+ */
 public class Node {
 	private double n;
 	private Node next;
@@ -12,42 +16,42 @@ public class Node {
 	}
 
 	/**
-	 * @return the n
+	 * @return n get node
 	 */
-	public double getN() {
+	public double getNode() {
 		return n;
 	}
 
 	/**
-	 * @param n the n to set
+	 * @param n set node
 	 */
-	public void setN(double n) {
+	public void setNode(double n) {
 		this.n = n;
 	}
 
 	/**
-	 * @return the next
+	 * @return get next node
 	 */
 	public Node getNext() {
 		return next;
 	}
 
 	/**
-	 * @param next the next to set
+	 * @param set next node
 	 */
 	public void setNext(Node next) {
 		this.next = next;
 	}
 
 	/**
-	 * @return the prev
+	 * @return get prev node
 	 */
 	public Node getPrev() {
 		return prev;
 	}
 
 	/**
-	 * @param prev the prev to set
+	 * @param set prev node 
 	 */
 	public void setPrev(Node prev) {
 		this.prev = prev;

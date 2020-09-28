@@ -11,7 +11,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-
+/**
+ * Main Driver class for assignment 5, produces GUI elements and performs print to GUI/User
+ * @author Lauren
+ * @since 9/27/20
+ */
 public class Window {
 
 	private JFrame frame;
@@ -58,7 +62,6 @@ public class Window {
 		}
 		
 		textField.setText("Mean: " + rf.finalM + "\nStandard Deviation: " + rf.finalSD);
-		//textField.setText();
 	}
 	/**
 	 * Initialize the contents of the frame.
