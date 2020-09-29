@@ -53,15 +53,26 @@ public class Window {
 			}
 		});
 	}
+	/**
+	 * OUTPUT TO USER
+	 */
 	public void buildOutput() {
 		ReadFile rf = new ReadFile();
+		//MAKE SURE VALID FILE
 		try {
 			rf.pickMe();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		//TEST OUTCOMES FOR VALID VALUES
+		if (rf.good2go == false) {
+			textField.setText("There is a Problem with your file, make sure it contains at least 2 numbers.");
+		}else if(rf.backup== false) {
+			textField.setText("There is an invalid character in this file.");
+		}else
+			textField.setText("Mean: " + rf.finalM + "\nStandard Deviation: " + rf.finalSD);
+			
 		
-		textField.setText("Mean: " + rf.finalM + "\nStandard Deviation: " + rf.finalSD);
 	}
 	/**
 	 * Initialize the contents of the frame.

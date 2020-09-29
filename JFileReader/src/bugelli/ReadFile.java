@@ -10,10 +10,13 @@ import javax.swing.JFileChooser;
  */
 public class ReadFile {
 	JFileChooser fileChooser = new JFileChooser();
+	public String test;
 	public int value;
 	public Queue list;
 	public String finalM;
 	public String finalSD;
+	public boolean good2go;
+	public boolean backup;
 	/**
 	 * Method to read file and grab mean and sd from queue class
 	 * @throws Exception will throw error if a file isn't selected
@@ -27,20 +30,36 @@ public class ReadFile {
 			//SCANNER TO READ FILE TO QUEUE
 			Scanner in = new Scanner(file);
 			
+			
 		
-			//TEST FILE AND PRINT REASON OF ERROR TO CONSOL
+			//TEST FILE LENGTH AND PRINT REASON TO CONSOL
 			if(file.length() == 0) {		
 				System.out.println("File is empty");
-			}else if (file.length() < 2) {
-				System.out.println("File holds only one value");
-			}
+				good2go = false;
+			}else if (file.length() == 1) {
+				System.out.println("File has only one line");
+				good2go = false;
+			}else
+				good2go = true;
 			
 			//CREATE QUEUE TO POPULATE WITH VALUES
 			list = new Queue();
-			//READ TEXT FROM FILE INTO QUEUE - only integers will be read correctly. 
-			while(in.hasNextInt()) {
-				value = in.nextInt();
-				list.addNode(value);
+			//READ TEXT FROM FILE INTO QUEUE 
+			while(in.hasNext()) {
+				test = in.next();
+			//TRY CATCH TO MAKE SURE INPUTS ARE VALID NUMBERS AND NO CHARS
+			      try 
+			        { 
+			            Integer.parseInt(test); 
+			            backup = true;
+			        }  
+			        catch (NumberFormatException e)  
+			        { 
+			            backup = false;
+			        } 
+			      value = Integer.parseInt(test);
+			      //ADD VALID VALUE TO QUEUE
+			      list.addNode(value);
 			}
 			
 			in.close();
