@@ -51,14 +51,14 @@ public class ReadFile {
 	 * @throws IOException
 	 */
 	public int countLines(File file) throws IOException {
-	    InputStream is = new BufferedInputStream(new FileInputStream(file));
+	    InputStream br = new BufferedInputStream(new FileInputStream(file));
 	    Scanner in = new Scanner(file);
 	    try {
 //READ AND COUNT EVERY LINE IN THE FILE AS FAST AND EFFICIENTLY AS POSSIBLE
 	        byte[] c = new byte[1024];
 	        Integer readChars = 0;
 	        boolean endsWithoutNewLine = false; //Make sure every line is counted
-	        while ((readChars = is.read(c)) != -1) {
+	        while ((readChars = br.read(c)) != -1) {
 	            for (int i = 0; i < readChars; ++i) {
 	                if (c[i] == '\n')
 	                    count++;
@@ -111,7 +111,7 @@ public class ReadFile {
 	        System.out.println("Multi Comment Lines: " + multiLineC); //42
 	        return count;
 	    } finally {
-	        is.close();
+	        br.close();
 	        in.close();
 	    }
 	}
